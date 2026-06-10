@@ -169,8 +169,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--dm-pink);outline-of
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
 
-/* SECTION RAIL — desktop reading tracker, right of the column */
-.rail{position:fixed;top:50%;transform:translateY(-50%);left:calc(50% + 374px);z-index:50;display:none;flex-direction:column;gap:7px;list-style:none}
+/* SECTION RAIL — desktop reading tracker, pinned right */
+.rail{position:fixed;top:50%;transform:translateY(-50%);right:28px;z-index:50;display:none;flex-direction:column;gap:7px;list-style:none}
 .rail a{position:relative;width:24px;height:24px;display:grid;place-items:center}
 .rail a::before{content:"";width:7px;height:7px;border-radius:50%;background:#CDC1D8;transition:all .35s var(--ease)}
 .rail a:hover::before{background:var(--dm-pink)}
@@ -211,6 +211,59 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--dm-pink);outline-of
   .cl,.sec,.close{scroll-margin-top:72px}
 }
 @media(min-width:1180px){.rail{display:flex}}
+
+/* FULL-WIDTH DESKTOP — two-column editorial layout */
+@media(min-width:1024px){
+  .page{max-width:none;box-shadow:none}
+  .menu{max-width:none}
+  .mast{padding:16px 48px}
+
+  .hero{padding:118px 48px 96px}
+  .hero h1{font-size:clamp(48px,4.6vw,62px);max-width:16ch}
+  .hero p{font-size:19px;max-width:50ch;margin-top:22px}
+  .hero .by{margin-top:30px}
+
+  .sec{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:84px;align-items:start;
+    max-width:1240px;margin:0 auto;padding:96px 48px;text-align:left}
+  .sec-left{position:sticky;top:96px}
+  .sec .h2{margin:12px 0 0;max-width:14ch;font-size:34px}
+  .sec .lead{margin:18px 0 0;max-width:44ch;font-size:17px}
+  .how{margin:0;padding:38px 42px;border-top:0;background:var(--grad-soft);border-radius:26px}
+  .how .kt{justify-content:flex-start}
+  .steps{margin:22px 0 0;max-width:none}
+  .steps li{text-align:left;font-size:15.5px;padding:10px 0 10px 34px;text-indent:-34px}
+  .tip{margin:24px 0 0;max-width:none;text-align:left}
+
+  .clintro{padding:104px 48px 10px}
+  .clintro .h2{font-size:34px}
+  .clintro p{font-size:16px;max-width:46ch}
+
+  .cl{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:84px;align-items:start;
+    max-width:1240px;margin:0 auto;padding:78px 48px;text-align:left}
+  .cl-left{position:sticky;top:96px}
+  .cl-n{font-size:44px}
+  .cl-tt h3{font-size:30px;margin:8px 0 0;max-width:16ch}
+  .cl-tt{margin-top:12px}
+  .cl-meta{margin-top:18px}
+  .cl-goal{margin:0;max-width:38ch;font-size:15.5px}
+  .qs{max-width:none;margin:0}
+  .qs li{text-align:left;font-size:18px;padding:17px 0}
+  .qs li:first-child{padding-top:4px}
+  .cl-rep{justify-content:flex-start;margin:22px 0 0;max-width:none}
+
+  .close{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:84px;align-items:start;
+    max-width:1240px;margin:0 auto;padding:96px 48px;text-align:left}
+  .close .h2{margin:12px 0 0;max-width:16ch;font-size:34px}
+  .close p{margin:18px 0 0;max-width:46ch;font-size:17px}
+  .contact{margin:0;max-width:none;text-align:center;
+    background:var(--grad-soft);border-radius:26px;padding:40px 36px}
+  .contact a .ic{background:#fff;box-shadow:0 4px 12px -6px rgba(26,14,46,.25)}
+
+  .foot{padding:60px 48px 62px}
+  .foot .marks{flex-direction:row;justify-content:center;gap:30px}
+  .foot .x{width:1px;height:30px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.28),transparent)}
+  .foot .fl{max-width:1240px;margin:34px auto 0}
+}
 
 /* iPhone-viewport tuning — use the width, comfortable gutters */
 @media(max-width:440px){
@@ -283,9 +336,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--dm-pink);outline-of
 
   <!-- WHY / BENEFITS / HOW -->
   <section class="sec reveal" id="start">
+    <div class="sec-left">
     <span class="k">Before you start</span>
     <h2 class="h2">In your own words.</h2>
     <p class="lead">The better our team understands your business, the stronger the work. So before anything else, talk us through it — generously and specifically. The detail is what makes it valuable.</p>
+    </div>
 
     <div class="how">
       <div class="kt"><svg class="mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4"/></svg>How to record it — on your iPhone</div>
@@ -309,10 +364,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--dm-pink);outline-of
 
   <!-- 01 -->
   <article class="cl reveal">
+    <div class="cl-left">
     <div class="cl-top"><span class="cl-n">01</span><div class="cl-tt"><div class="cl-cat">Positioning</div><h3>Who you are &amp; what you stand for</h3></div></div>
     <div class="cl-meta">
       <div class="cl-goal"><b>Goal:</b> nail the one thing Husband Retail <i>is</i>, in your words.</div>
     </div>
+    </div>
+    <div class="cl-right">
     <ul class="qs">
       <li>In a sentence or two, what is Husband Retail and what do you do?</li>
       <li>What do you genuinely do better than anyone else in retail real estate?</li>
@@ -320,14 +378,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--dm-pink);outline-of
       <li>What do you believe about great retail that others don't?</li>
       <li>Why does the work matter — to your clients, to a city, to you?</li>
     </ul>
+    </div>
   </article>
 
   <!-- 02 -->
   <article class="cl reveal">
+    <div class="cl-left">
     <div class="cl-top"><span class="cl-n">02</span><div class="cl-tt"><div class="cl-cat">Services</div><h3>What you do — and what clients receive</h3></div></div>
     <div class="cl-meta">
       <div class="cl-goal"><b>Goal:</b> make every service concrete and tangible.</div>
     </div>
+    </div>
+    <div class="cl-right">
     <ul class="qs">
       <li>Walk me through your core services, one by one.</li>
       <li>For each one, what does the client actually <i>get</i> at the end?<small>The real deliverable — a report, a strategy, a let scheme, a signed deal.</small></li>
@@ -335,14 +397,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--dm-pink);outline-of
       <li>Which service is most in demand right now? Which is most strategic for you?</li>
       <li>Your newer direction — asset management &amp; investment advisory — what does it include?</li>
     </ul>
+    </div>
   </article>
 
   <!-- 03 -->
   <article class="cl reveal">
+    <div class="cl-left">
     <div class="cl-top"><span class="cl-n">03</span><div class="cl-tt"><div class="cl-cat">Audience</div><h3>Who you do it for — and want more of</h3></div></div>
     <div class="cl-meta">
       <div class="cl-goal"><b>Goal:</b> be clear on exactly who you serve.</div>
     </div>
+    </div>
+    <div class="cl-right">
     <ul class="qs">
       <li>Who are your clients — developers, investors, retailers, landlords? Describe the main types.</li>
       <li>Who is your <i>ideal</i> client — the kind of project you'd happily take ten more of?</li>
@@ -350,28 +416,36 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--dm-pink);outline-of
       <li>What worries or hesitations do they have before hiring an advisor?</li>
       <li>Who do you <i>not</i> want to attract?</li>
     </ul>
+    </div>
   </article>
 
   <!-- 04 -->
   <article class="cl reveal">
+    <div class="cl-left">
     <div class="cl-top"><span class="cl-n">04</span><div class="cl-tt"><div class="cl-cat">Markets</div><h3>Where you operate</h3></div></div>
     <div class="cl-meta">
       <div class="cl-goal"><b>Goal:</b> map your footprint and your home turf.</div>
     </div>
+    </div>
+    <div class="cl-right">
     <ul class="qs">
       <li>Which markets and cities are you active in today?</li>
       <li>Where is your core / home market, and where are you strongest?</li>
       <li>Any market you've worked in that surprises people?</li>
       <li>How do you actually work across markets — local partners, on the ground, networks?</li>
     </ul>
+    </div>
   </article>
 
   <!-- 05 -->
   <article class="cl reveal">
+    <div class="cl-left">
     <div class="cl-top"><span class="cl-n">05</span><div class="cl-tt"><div class="cl-cat">Proof</div><h3>Track record &amp; results</h3></div></div>
     <div class="cl-meta">
       <div class="cl-goal"><b>Goal:</b> gather the hard proof — names, numbers, outcomes.</div>
     </div>
+    </div>
+    <div class="cl-right">
     <ul class="qs">
       <li>The headline numbers — how many projects, how many years, how many markets?</li>
       <li>The names you're proud to be associated with — clients, brands, schemes?</li>
@@ -379,14 +453,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--dm-pink);outline-of
       <li>Any awards, the book, press or recognition worth featuring?</li>
       <li>Would any clients give a short testimonial — and who should we ask?</li>
     </ul>
+    </div>
   </article>
 
   <!-- 06 -->
   <article class="cl reveal">
+    <div class="cl-left">
     <div class="cl-top"><span class="cl-n">06</span><div class="cl-tt"><div class="cl-cat">Case studies</div><h3>Signature projects — tell the stories</h3></div></div>
     <div class="cl-meta">
       <div class="cl-goal"><b>Goal:</b> three to five flagship projects, told as stories.</div>
     </div>
+    </div>
+    <div class="cl-right">
     <ul class="qs">
       <li>Pick a few signature projects. For each — what was it, and where?</li>
       <li>What was the brief, or the problem the client had?</li>
@@ -395,14 +473,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--dm-pink);outline-of
       <li>Why does this one matter — what does it prove about you?</li>
     </ul>
     <div class="cl-rep"><svg class="lp" viewBox="0 0 24 24"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"/></svg>Repeat these five for each project.</div>
+    </div>
   </article>
 
   <!-- 07 -->
   <article class="cl reveal">
+    <div class="cl-left">
     <div class="cl-top"><span class="cl-n">07</span><div class="cl-tt"><div class="cl-cat">Growth</div><h3>Where you're going next</h3></div></div>
     <div class="cl-meta">
       <div class="cl-goal"><b>Goal:</b> capture the forward story and your business-development goals.</div>
     </div>
+    </div>
+    <div class="cl-right">
     <ul class="qs">
       <li>Which markets or regions do you want to grow into next?</li>
       <li>Which services do you want more of going forward?</li>
@@ -410,14 +492,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--dm-pink);outline-of
       <li>What's the one-to-three-year ambition for the business?</li>
       <li>Is there anyone in particular you'd love us to help you reach?</li>
     </ul>
+    </div>
   </article>
 
   <!-- 08 -->
   <article class="cl reveal">
+    <div class="cl-left">
     <div class="cl-top"><span class="cl-n">08</span><div class="cl-tt"><div class="cl-cat">Look, feel &amp; voice</div><h3>How it should look and sound</h3></div></div>
     <div class="cl-meta">
       <div class="cl-goal"><b>Goal:</b> capture the look, tone and colours that feel right for Husband Retail.</div>
     </div>
+    </div>
+    <div class="cl-right">
     <ul class="qs">
       <li>How should it feel to someone landing on it — in three or four words?<small>e.g. premium, understated, confident, warm.</small></li>
       <li>Are there websites, brands or magazines whose <i>look and feel</i> you admire? What is it about them?</li>
@@ -426,14 +512,18 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--dm-pink);outline-of
       <li>Any colours that feel like "you", or that you'd want to steer clear of?</li>
       <li>Do you lean toward classic black-and-white restraint, or something with more colour?</li>
     </ul>
+    </div>
   </article>
 
   <!-- 09 -->
   <article class="cl reveal">
+    <div class="cl-left">
     <div class="cl-top"><span class="cl-n">09</span><div class="cl-tt"><div class="cl-cat">The goal</div><h3>What "success" looks like</h3></div></div>
     <div class="cl-meta">
       <div class="cl-goal"><b>Goal:</b> tell us what a great outcome looks like for you.</div>
     </div>
+    </div>
+    <div class="cl-right">
     <ul class="qs">
       <li>When the new site is live, what should it <i>do</i> for the business?</li>
       <li>What single action do you want a great-fit visitor to take?</li>
@@ -441,13 +531,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--dm-pink);outline-of
       <li>Any websites — yours or others' — you admire? What about them?</li>
       <li>Anything you definitely want, or definitely want to avoid?</li>
     </ul>
+    </div>
   </article>
 
   <!-- CLOSING -->
   <section class="close reveal" id="done">
+    <div class="close-left">
     <span class="k">When you're done</span>
     <h2 class="h2">Send it over — we'll take it from there.</h2>
     <p>That's everything. The more generous and specific you are, the better — <b>every name, number and story gives our team something to work with</b>. Record it whenever suits you, then send the memo (or a transcript) over to us. Thank you, Paul.</p>
+    </div>
     <div class="contact">
       <div class="ct-photo" role="img" aria-label="Raoul — Digital Movement UK"></div>
       <div class="ct">Your contact</div>
